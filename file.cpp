@@ -26,5 +26,17 @@ int main() {
             cout << fixed << setprecision(2);
             for (auto* s : v)
                 cout << s->first << " " << s->last << ", " << s->id << ", " << s->gpa << endl;
+        }
+	else if (!strcmp(cmd, "DELETE")) {
+            int id; cout << "ID: "; cin >> id;
+            for (auto it = v.begin(); it != v.end(); ++it)
+                if ((*it)->id == id) { delete *it; v.erase(it); break; }
         } 
+        else if (!strcmp(cmd, "QUIT")) {
+            for (auto* s : v) delete s;
+            break;
+        }
+    }
+}
+
 
