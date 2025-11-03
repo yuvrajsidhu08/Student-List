@@ -16,3 +16,15 @@ int main() {
     while (true) {
         cout << "Command (ADD, PRINT, DELETE, QUIT): ";
         cin >> cmd;
+	if (!strcmp(cmd, "ADD")) {
+            auto* s = new Student;
+            cout << "First Last ID GPA: ";
+            cin >> s->first >> s->last >> s->id >> s->gpa;
+            v.push_back(s);
+        } 
+        else if (!strcmp(cmd, "PRINT")) {
+            cout << fixed << setprecision(2);
+            for (auto* s : v)
+                cout << s->first << " " << s->last << ", " << s->id << ", " << s->gpa << endl;
+        } 
+
